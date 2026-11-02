@@ -1,0 +1,17 @@
+{
+  "model": "esmc_600m",
+  "rounds": 4,
+  "sites_per_round": 2,
+  "temperature": 0.0,
+  "top_p": 0.9,
+  "site_indexing": "legacy",
+  "weight_temperature": 0.1,
+  "keep_fraction": 1.0,
+  "seed": 42,
+  "random_pair_seeds": [17, 29, 43, 71, 101],
+  "properties": {
+    "solubility": {"pairing_layer": 35, "optimal_layer": 25, "alpha": 1.0},
+    "immunogenicity": {"pairing_layer": 35, "optimal_layer": 35, "alpha": 2.0},
+    "toxicity": {"pairing_layer": 30, "optimal_layer": 30, "alpha": 2.0}
+  }
+}

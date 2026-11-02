@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+data/
+results/
+pu_run/
+lds_run/
