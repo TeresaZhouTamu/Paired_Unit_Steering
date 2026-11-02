@@ -33,7 +33,7 @@ python3 optimize_sequences.py \
 
 The optimizer ranks sites by ascending cosine similarity at `--optimal-layer`, masks unused sites, and predicts new amino acids with all-layer steering; the original amino acid is excluded from replacement.
 
-The manuscript settings are in `configs/study_protocol.json`.
+The manuscript settings are in `configs/protocol.json`.
 
 ## 3. Rank candidates by LDS with an independent pool
 

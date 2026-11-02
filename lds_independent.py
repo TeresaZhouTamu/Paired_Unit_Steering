@@ -191,8 +191,8 @@ def build_pair_bank(
     if min(len(pp), len(npair)) < 1:
         raise ValueError("Both labels must be present in the sampled pool")
     pi, ni = linear_sum_assignment(-(pp @ npair.T))
-    # The midpoint uses the original embeddings; normalize only afterward.
-    background = _unit((positive_pair[pi] + negative_pair[ni]) / 2)
+    # Match the analysis notebook: normalize each protein before its midpoint.
+    background = _unit((pp[pi] + npair[ni]) / 2)
     direction = _unit(positive_direction[pi] - negative_direction[ni])
     if (np.linalg.norm(background, axis=-1) <= EPS).any() or (
         np.linalg.norm(direction, axis=-1) <= EPS

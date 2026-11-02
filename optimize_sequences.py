@@ -13,6 +13,9 @@ import numpy as np
 import pandas as pd
 
 from module.esmc_model import ESMCModel
+import torch.nn.functional as F
+from esm.utils.constants.esm3 import SEQUENCE_MASK_TOKEN
+import torch.nn.functional as F
 
 
 # 1. Load a saved vector and the target proteins.
@@ -78,7 +81,6 @@ def sample_top_p(probabilities, top_p: float, torch):
 def predict_tokens(model: ESMCModel, masked, original, steering, temperature, top_p):
     """Decode new amino acids while excluding the original amino acid."""
     torch = model.torch
-    import torch.nn.functional as F
 
     with torch.no_grad():
         output = model.model.steering_forward(
@@ -98,9 +100,7 @@ def predict_tokens(model: ESMCModel, masked, original, steering, temperature, to
 
 def optimize_sequence(model: ESMCModel, sequence: str, vectors: np.ndarray, args):
     """Return endpoint, mutation log, and the sequence after every round."""
-    torch = model.torch
-    import torch.nn.functional as F
-    from esm.utils.constants.esm3 import SEQUENCE_MASK_TOKEN
+    torch = model.torc
 
     current = model.encode_sequence(sequence)
     steering = torch.from_numpy(vectors).to(model.device) * args.alpha
